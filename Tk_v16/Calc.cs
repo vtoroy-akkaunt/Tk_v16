@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Tk_v16
 {
     // Допустим, что спецификация для этого класса составлена именно так, что они делают настолько мало, как тут
-    internal class Calc
+    public class Calc
     {
         /// <summary>
         /// Вычисляет ток по данным показаниям напряжения и сопротивления. Кидает исключения при некорректном вводе, тип исключений не уточняется.
@@ -17,8 +17,8 @@ namespace Tk_v16
         /// <returns>Ток в амперах</returns>
         public static double current(double volt, double ohm)
         {
-            if (ohm == 0)
-                throw new DivideByZeroException();
+            if (ohm == 0 || volt < 0 || ohm < 0)
+                throw new Exception();
             return volt / ohm;
         }
         /// <summary>
@@ -29,6 +29,8 @@ namespace Tk_v16
         /// <returns>Напряжение в вольтах</returns>
         public static double voltage(double ohm, double ampere)
         {
+            if (ampere < 0 || ohm < 0)
+                throw new Exception();
             return ohm * ampere;
         }
         /// <summary>
@@ -39,8 +41,8 @@ namespace Tk_v16
         /// <returns>Сопротивление в омах</returns>
         public static double resistance(double ampere, double volt)
         {
-            if (ampere == 0)
-                throw new DivideByZeroException();
+            if (ampere == 0 || volt < 0 || ampere < 0)
+                throw new Exception();
             return volt / ampere;
         }
     }
