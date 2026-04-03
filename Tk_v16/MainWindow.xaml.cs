@@ -49,27 +49,27 @@ namespace Tk_v16
         }
         private string format(double x)
         {
-            return string.Format("0,000", x);
+            return string.Format("{0:0.000}", x);
         }
         private void btn_calc_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                double x1 = Convert.ToDouble(label1.Text);
-                double x2 = Convert.ToDouble(label2.Text);
+                double x1 = Convert.ToDouble(input1.Text.Replace('.', ','));
+                double x2 = Convert.ToDouble(input2.Text.Replace('.', ','));
                 if (rb_current.IsChecked == true)
                 {
-                    result.Text = format(Calc.current(x1, x2));
+                    result.Text = "Сила тока = " + format(Calc.current(x1, x2)) + " А";
                 }
                 else
                 if (rb_voltage.IsChecked == true)
                 {
-                    result.Text = format(Calc.voltage(x1, x2));
+                    result.Text = "Напряжение = " + format(Calc.voltage(x1, x2)) + " В";
                 }
                 else
                 if (rb_resistance.IsChecked == true)
                 {
-                    result.Text = format(Calc.resistance(x1, x2));
+                    result.Text = "Сопротивление = " + format(Calc.resistance(x1, x2)) + " Ом";
                 }
                 else
                 {
@@ -79,6 +79,7 @@ namespace Tk_v16
             }
             catch (Exception)
             {
+                result.Text = "";
                 MessageBox.Show("Некорректный ввод");
             }
         }

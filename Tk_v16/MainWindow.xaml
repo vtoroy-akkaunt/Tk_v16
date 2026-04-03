@@ -45,7 +45,7 @@
             <!-- Не помню, как называется элемент, объединяющий элементы в группу с границей и
             подписью (типа "Вычисляемая величина") (в wxwidgets это назвалось static-что-то там) -->
             <StackPanel Orientation="Vertical" Grid.Row="0">
-                <RadioButton Content="Сила тока" x:Name="rb_current" Checked="true" Click="rb_changed"/>
+                <RadioButton Content="Сила тока" x:Name="rb_current" IsChecked="True" Checked="rb_changed"/>
                 <RadioButton Content="Напряжение" x:Name="rb_voltage" Click="rb_changed"/>
                 <RadioButton Content="Сопротивление" x:Name="rb_resistance" Click="rb_changed"/>
             </StackPanel>

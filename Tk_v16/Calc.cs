@@ -17,6 +17,8 @@ namespace Tk_v16
         /// <returns>Ток в амперах</returns>
         public static double current(double volt, double ohm)
         {
+            if (ohm == 0)
+                throw new DivideByZeroException();
             return volt / ohm;
         }
         /// <summary>
@@ -37,6 +39,8 @@ namespace Tk_v16
         /// <returns>Сопротивление в омах</returns>
         public static double resistance(double ampere, double volt)
         {
+            if (ampere == 0)
+                throw new DivideByZeroException();
             return volt / ampere;
         }
     }
