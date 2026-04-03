@@ -57,7 +57,7 @@ namespace Tk_v16
             {
                 double x1 = Convert.ToDouble(input1.Text.Replace('.', ','));
                 double x2 = Convert.ToDouble(input2.Text.Replace('.', ','));
-                if (x1 < 0 || x2 < 0 || x1 == double.NaN || x2 == double.NaN)
+                if (x1 == double.NaN || x2 == double.NaN)
                     throw new Exception();
                 if (rb_current.IsChecked == true)
                 {
